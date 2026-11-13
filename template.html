@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESC}}" />
+  <link rel="canonical" href="{{CANONICAL}}" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">{{FAQ_SCHEMA}}</script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+
+  <!-- TOP AD SLOT -->
+  <div id="ad-slot-top" class="max-w-5xl mx-auto pt-4 px-4 flex justify-center">
+    <div class="w-full h-16 bg-slate-900/70 border border-slate-800 rounded-lg flex items-center justify-center text-xs text-slate-500">
+      Advertisement Space (728x90 / Responsive)
+    </div>
+  </div>
+
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <!-- Header -->
+    <header class="mb-8">
+      <div class="inline-block px-3 py-1 mb-3 text-xs font-semibold tracking-wider text-cyan-400 uppercase bg-cyan-950/60 border border-cyan-800/60 rounded-full">
+        100% Client-Side • Zero Data Leaves Browser
+      </div>
+      <h1 class="text-2xl md:text-4xl font-bold text-white tracking-tight mb-2">{{H1}}</h1>
+      <p class="text-slate-400 text-sm md:text-base">{{DESC}}</p>
+    </header>
+
+    <!-- Tool Selector Bar -->
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 mb-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+      <div class="flex-1">
+        <label class="block text-xs font-medium text-slate-400 uppercase mb-1">Active Converter / Utility</label>
+        <select id="toolSelect" onchange="onToolChange()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-cyan-500"></select>
+      </div>
+      <div class="flex items-end gap-2">
+        <button onclick="loadSample()" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg transition">
+          Load Sample
+        </button>
+        <button onclick="clearAll()" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-400 text-xs font-semibold rounded-lg transition">
+          Clear
+        </button>
+        <button onclick="runConvert()" class="px-5 py-2 bg-cyan-600 hover:bg-cyan-500 text-slate-950 text-xs font-bold rounded-lg transition">
+          Convert
+        </button>
+      </div>
+    </div>
+
+    <!-- Dual Pane Editor -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+      <!-- Input -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Input Data</span>
+          <label class="text-xs text-cyan-400 hover:text-cyan-300 cursor-pointer font-medium">
+            Upload File
+            <input type="file" id="fileUpload" onchange="handleFileUpload(event)" class="hidden" />
+          </label>
+        </div>
+        <textarea id="inputArea" rows="12" oninput="runConvert()" placeholder="Paste your JSON, CSV, SQL, JWT, or text here..." class="w-full flex-1 bg-slate-950 border border-slate-800 rounded-xl p-3 font-mono text-xs md:text-sm text-slate-100 focus:outline-none focus:border-cyan-500 resize-y"></textarea>
+        <div id="statusMsg" class="text-xs mt-2 text-slate-400 min-h-[1rem]"></div>
+      </div>
+
+      <!-- Output -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Output Result</span>
+          <div class="flex items-center gap-2">
+            <button onclick="copyOutput()" id="copyBtn" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-cyan-400 text-xs font-semibold rounded-md transition">
+              Copy Result
+            </button>
+            <button onclick="downloadOutput()" class="px-3 py-1 bg-cyan-600 hover:bg-cyan-500 text-slate-950 text-xs font-bold rounded-md transition">
+              Download
+            </button>
+          </div>
+        </div>
+        <textarea id="outputArea" rows="12" readonly placeholder="Converted output appears instantly here..." class="w-full flex-1 bg-slate-950 border border-slate-800 rounded-xl p-3 font-mono text-xs md:text-sm text-emerald-300 focus:outline-none resize-y"></textarea>
+        <div id="outputMeta" class="text-xs mt-2 text-slate-500 min-h-[1rem]"></div>
+      </div>
+    </div>
+
+    <!-- Pro Paywall Gate (>50 Bulk Rows / Items) -->
+    <div id="proPaywallBox" class="hidden mb-8 p-5 bg-gradient-to-r from-amber-950/60 to-slate-950 border border-amber-600/40 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <div class="text-amber-400 font-bold text-sm">Free Tier Limit: First 50 of <span id="totalRowsCount">0</span> Rows Processed</div>
+        <p class="text-xs text-slate-300 mt-1">Unlock unlimited bulk rows (100,000+ records) across all 60 developer tools for a one-time $4.99 license.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
+        <a href="https://profitcalctools.lemonsqueezy.com" target="_blank" rel="noopener" class="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-lg text-center whitespace-nowrap">
+          Unlock Bulk Pro ($4.99)
+        </a>
+        <input type="text" id="licenseKeyInput" placeholder="License Key" class="px-3 py-2 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white" />
+        <button onclick="activateLicense()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-xs rounded-lg">Activate</button>
+      </div>
+    </div>
+
+    <!-- MID AD SLOT -->
+    <div id="ad-slot-bottom" class="my-8 flex justify-center">
+      <div class="w-full h-24 bg-slate-900/70 border border-slate-800 rounded-lg flex items-center justify-center text-xs text-slate-500">
+        Advertisement Space (Native / Responsive)
+      </div>
+    </div>
+
+    <!-- SEO FAQ Section -->
+    <section class="mt-8 bg-slate-900/50 border border-slate-800/80 rounded-2xl p-6">
+      <h2 class="text-lg font-bold text-white mb-4">Frequently Asked Questions</h2>
+      <div id="faqContainer" class="space-y-4 text-sm"></div>
+    </section>
+
+    <!-- BOTTOM AD SLOT -->
+    <div id="ad-slot-footer" class="mt-8 flex justify-center">
+      <div class="w-[300px] h-[250px] bg-slate-900/70 border border-slate-800 rounded-lg flex items-center justify-center text-xs text-slate-500">
+        Advertisement Space (300x250)
+      </div>
+    </div>
+
+    <!-- Internal Links Grid -->
+    <footer class="mt-12 pt-8 border-t border-slate-800">
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">All 60 Developer & Data Conversion Tools</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs">
+        {{INTERNAL_LINKS}}
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const TOOLS = {{TOOLS_JSON}};
+    const INITIAL_ID = "{{TOOL_ID}}";
+    let isProUnlocked = localStorage.getItem("devconv_pro_unlocked") === "true";
+    let currentTool = TOOLS[0];
+
+    function init() {
+      const sel = document.getElementById("toolSelect");
+      TOOLS.forEach(t => {
+        const opt = document.createElement("option");
+        opt.value = t.id;
+        opt.textContent = t.toolName;
+        if (t.id === INITIAL_ID) opt.selected = true;
+        sel.appendChild(opt);
+      });
+      onToolChange(true);
+    }
+
+    function onToolChange(loadDefaultSample = false) {
+      const id = document.getElementById("toolSelect").value;
+      currentTool = TOOLS.find(t => t.id === id) || TOOLS[0];
+      document.getElementById("faqContainer").innerHTML = currentTool.faqs.map(f => `
+        <div class="border-b border-slate-800/60 pb-3 last:border-none">
+          <h3 class="font-semibold text-slate-200">${f.q}</h3>
+          <p class="text-slate-400 mt-1">${f.a}</p>
+        </div>
+      `).join("");
+      if (loadDefaultSample || !document.getElementById("inputArea").value.trim()) {
+        document.getElementById("inputArea").value = currentTool.sample || "";
+      }
+      runConvert();
+    }
+
+    function loadSample() {
+      document.getElementById("inputArea").value = currentTool.sample || "";
+      runConvert();
+    }
+
+    function clearAll() {
+      document.getElementById("inputArea").value = "";
+      document.getElementById("outputArea").value = "";
+      document.getElementById("statusMsg").textContent = "";
+      document.getElementById("outputMeta").textContent = "";
+      document.getElementById("proPaywallBox").classList.add("hidden");
+    }
+
+    function handleFileUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        document.getElementById("inputArea").value = ev.target.result;
+        runConvert();
+      };
+      reader.readAsText(file);
+    }
+
+    function gateList(arr) {
+      const paywall = document.getElementById("proPaywallBox");
+      if (!isProUnlocked && arr.length > 50) {
+        document.getElementById("totalRowsCount").textContent = arr.length;
+        paywall.classList.remove("hidden");
+        return arr.slice(0, 50);
+      }
+      paywall.classList.add("hidden");
+      return arr;
+    }
+
+    function parseDelimited(text, delim) {
+      const rows = [];
+      let row = [], cur = "", inQuotes = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i], next = text[i + 1];
+        if (inQuotes) {
+          if (c === '"' && next === '"') { cur += '"'; i++; }
+          else if (c === '"') inQuotes = false;
+          else cur += c;
+        } else {
+          if (c === '"') inQuotes = true;
+          else if (c === delim) { row.push(cur); cur = ""; }
+          else if (c === '\r' && next === '\n') { row.push(cur); rows.push(row); row = []; cur = ""; i++; }
+          else if (c === '\n') { row.push(cur); rows.push(row); row = []; cur = ""; }
+          else cur += c;
+        }
+      }
+      if (cur.length > 0 || row.length > 0) { row.push(cur); rows.push(row); }
+      return rows.filter(r => r.some(cell => cell.trim() !== ""));
+    }
+
+    function flattenObj(obj, prefix = "", res = {}) {
+      for (const k in obj) {
+        const key = prefix ? `${prefix}.${k}` : k;
+        const val = obj[k];
+        if (val && typeof val === "object" && !Array.isArray(val)) flattenObj(val, key, res);
+        else res[key] = Array.isArray(val) ? JSON.stringify(val) : val;
+      }
+      return res;
+    }
+
+    function sortObj(val) {
+      if (Array.isArray(val)) return val.map(sortObj);
+      if (val && typeof val === "object") {
+        return Object.keys(val).sort().reduce((acc, k) => { acc[k] = sortObj(val[k]); return acc; }, {});
+      }
+      return val;
+    }
+
+    function toWords(str) {
+      return str.replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/[^a-zA-Z0-9]+/g, " ").trim().split(/\s+/).filter(Boolean);
+    }
+
+    function xmlToObj(node) {
+      if (node.nodeType === 3) return node.nodeValue.trim();
+      const obj = {};
+      if (node.attributes && node.attributes.length > 0) {
+        obj["@attributes"] = {};
+        for (const attr of node.attributes) obj["@attributes"][attr.name] = attr.value;
+      }
+      const children = Array.from(node.childNodes).filter(n => n.nodeType !== 3 || n.nodeValue.trim() !== "");
+      if (children.length === 1 && children[0].nodeType === 3) {
+        if (!obj["@attributes"]) return children[0].nodeValue.trim();
+        obj["#text"] = children[0].nodeValue.trim();
+        return obj;
+      }
+      for (const child of children) {
+        const name = child.nodeName;
+        const val = xmlToObj(child);
+        if (obj[name] !== undefined) {
+          if (!Array.isArray(obj[name])) obj[name] = [obj[name]];
+          obj[name].push(val);
+        } else obj[name] = val;
+      }
+      return obj;
+    }
+
+    function objToXml(val, tag = "root", indent = "") {
+      const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      if (Array.isArray(val)) return val.map(item => objToXml(item, "item", indent)).join("\n");
+      if (val && typeof val === "object") {
+        const inner = Object.entries(val).map(([k, v]) => objToXml(v, k.replace(/[^a-zA-Z0-9_-]/g, "_"), indent + "  ")).join("\n");
+        return `${indent}<${tag}>\n${inner}\n${indent}</${tag}>`;
+      }
+      return `${indent}<${tag}>${esc(val ?? "")}</${tag}>`;
+    }
+
+    function objToYaml(val, indent = "") {
+      if (val === null || val === undefined) return "null";
+      if (typeof val !== "object") return typeof val === "string" && /[:#\n]/.test(val) ? JSON.stringify(val) : String(val);
+      if (Array.isArray(val)) {
+        if (!val.length) return "[]";
+        return val.map(v => typeof v === "object" && v !== null ? `${indent}-\n${objToYaml(v, indent + "  ")}` : `${indent}- ${objToYaml(v)}`).join("\n");
+      }
+      return Object.entries(val).map(([k, v]) => {
+        if (v && typeof v === "object") return `${indent}${k}:\n${objToYaml(v, indent + "  ")}`;
+        return `${indent}${k}: ${objToYaml(v)}`;
+      }).join("\n");
+    }
+
+    async function runConvert() {
+      const raw = document.getElementById("inputArea").value;
+      const outEl = document.getElementById("outputArea");
+      const statusEl = document.getElementById("statusMsg");
+      const metaEl = document.getElementById("outputMeta");
+      document.getElementById("proPaywallBox").classList.add("hidden");
+
+      if (!raw.trim()) {
+        outEl.value = "";
+        statusEl.textContent = "";
+        metaEl.textContent = "";
+        return;
+      }
+
+      try {
+        let out = "";
+        const mode = currentTool.mode;
+
+        if (mode === "json-to-csv" || mode === "json-to-tsv") {
+          const delim = mode === "json-to-tsv" ? "\t" : ",";
+          let data = JSON.parse(raw);
+          if (!Array.isArray(data)) data = [data];
+          data = gateList(data).map(item => flattenObj(item));
+          const headers = [...new Set(data.flatMap(Object.keys))];
+          const esc = v => {
+            const s = v === null || v === undefined ? "" : String(v);
+            return delim === "," && /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+          };
+          out = [headers.join(delim), ...data.map(r => headers.map(h => esc(r[h])).join(delim))].join("\n");
+        }
+        else if (mode === "csv-to-json" || mode === "tsv-to-json") {
+          const delim = mode === "tsv-to-json" ? "\t" : ",";
+          const rows = parseDelimited(raw, delim);
+          const headers = rows[0].map(h => h.trim());
+          const body = gateList(rows.slice(1));
+          const arr = body.map(r => {
+            const obj = {};
+            headers.forEach((h, idx) => {
+              const val = (r[idx] ?? "").trim();
+              obj[h || `col_${idx + 1}`] = val !== "" && !isNaN(val) ? Number(val) : val === "true" ? true : val === "false" ? false : val;
+            });
+            return obj;
+          });
+          out = JSON.stringify(arr, null, 2);
+        }
+        else if (mode === "json-format") {
+          out = JSON.stringify(JSON.parse(raw), null, 2);
+        }
+        else if (mode === "json-minify") {
+          out = JSON.stringify(JSON.parse(raw));
+        }
+        else if (mode === "json-sort") {
+          out = JSON.stringify(sortObj(JSON.parse(raw)), null, 2);
+        }
+        else if (mode === "json-flatten") {
+          out = JSON.stringify(flattenObj(JSON.parse(raw)), null, 2);
+        }
+        else if (mode === "json-escape") {
+          out = JSON.stringify(raw).slice(1, -1);
+        }
+        else if (mode === "json-unescape") {
+          const trimmed = raw.trim();
+          out = trimmed.startsWith('"') && trimmed.endsWith('"') ? JSON.parse(trimmed) : JSON.parse(`"${trimmed.replace(/"/g, '\\"')}"`);
+        }
+        else if (mode === "json-to-ts") {
+          const parsed = JSON.parse(raw);
+          const sample = Array.isArray(parsed) ? (parsed[0] || {}) : parsed;
+          const lines = ["export interface RootObject {"];
+          for (const [k, v] of Object.entries(sample)) {
+            const t = v === null ? "any" : Array.isArray(v) ? (typeof v[0] === "object" ? "Record<string, any>[]" : `${typeof (v[0] ?? "any")}[]`) : typeof v === "object" ? "Record<string, any>" : typeof v;
+            lines.push(`  ${/^[a-zA-Z_$][\w$]*$/.test(k) ? k : JSON.stringify(k)}: ${t};`);
+          }
+          lines.push("}");
+          out = lines.join("\n");
+        }
+        else if (mode === "json-to-sql") {
+          let arr = JSON.parse(raw);
+          if (!Array.isArray(arr)) arr = [arr];
+          arr = gateList(arr);
+          const cols = [...new Set(arr.flatMap(Object.keys))];
+          const colDefs = cols.map(c => {
+            const v = arr.find(r => r[c] !== null && r[c] !== undefined)?.[c];
+            const sqlType = typeof v === "number" ? (Number.isInteger(v) ? "INT" : "DECIMAL(10,2)") : typeof v === "boolean" ? "BOOLEAN" : "VARCHAR(255)";
+            return `  ${c.replace(/[^a-zA-Z0-9_]/g, "_")} ${sqlType}`;
+          }).join(",\n");
+          const inserts = arr.map(r => {
+            const vals = cols.map(c => r[c] === null || r[c] === undefined ? "NULL" : typeof r[c] === "number" || typeof r[c] === "boolean" ? r[c] : `'${String(r[c]).replace(/'/g, "''")}'`).join(", ");
+            return `INSERT INTO my_table (${cols.join(", ")}) VALUES (${vals});`;
+          }).join("\n");
+          out = `CREATE TABLE my_table (\n${colDefs}\n);\n\n${inserts}`;
+        }
+        else if (mode === "csv-to-sql") {
+          const rows = parseDelimited(raw, ",");
+          const cols = rows[0].map(c => c.trim().replace(/[^a-zA-Z0-9_]/g, "_"));
+          const body = gateList(rows.slice(1));
+          out = body.map(r => {
+            const vals = cols.map((_, i) => {
+              const v = (r[i] ?? "").trim();
+              return v === "" ? "NULL" : !isNaN(v) ? v : `'${v.replace(/'/g, "''")}'`;
+            }).join(", ");
+            return `INSERT INTO my_table (${cols.join(", ")}) VALUES (${vals});`;
+          }).join("\n");
+        }
+        else if (mode === "json-to-xml") {
+          out = `<?xml version="1.0" encoding="UTF-8"?>\n${objToXml(JSON.parse(raw), "root")}`;
+        }
+        else if (mode === "xml-to-json") {
+          const doc = new DOMParser().parseFromString(raw, "text/xml");
+          const err = doc.querySelector("parsererror");
+          if (err) throw new Error(err.textContent.split("\n")[0]);
+          out = JSON.stringify({ [doc.documentElement.nodeName]: xmlToObj(doc.documentElement) }, null, 2);
+        }
+        else if (mode === "json-to-yaml") {
+          out = objToYaml(JSON.parse(raw));
+        }
+        else if (mode === "yaml-to-json") {
+          const lines = raw.split(/\r?\n/).filter(l => l.trim() && !l.trim().startsWith("#"));
+          const root = {};
+          const stack = [{ indent: -1, obj: root }];
+          for (const line of lines) {
+            const indent = line.search(/\S/);
+            const trimmed = line.trim();
+            while (stack.length > 1 && indent <= stack[stack.length - 1].indent) stack.pop();
+            const parent = stack[stack.length - 1].obj;
+            const idx = trimmed.indexOf(":");
+            if (idx > -1) {
+              const k = trimmed.slice(0, idx).trim();
+              const vRaw = trimmed.slice(idx + 1).trim();
+              if (vRaw === "") {
+                parent[k] = {};
+                stack.push({ indent, obj: parent[k] });
+              } else {
+                const unq = vRaw.replace(/^['"]|['"]$/g, "");
+                parent[k] = unq === "true" ? true : unq === "false" ? false : unq === "null" ? null : !isNaN(unq) && unq !== "" ? Number(unq) : unq;
+              }
+            }
+          }
+          out = JSON.stringify(root, null, 2);
+        }
+        else if (mode === "env-to-json") {
+          const obj = {};
+          gateList(raw.split(/\r?\n/)).forEach(line => {
+            const t = line.trim();
+            if (!t || t.startsWith("#")) return;
+            const eq = t.indexOf("=");
+            if (eq > -1) obj[t.slice(0, eq).trim()] = t.slice(eq + 1).trim().replace(/^['"]|['"]$/g, "");
+          });
+          out = JSON.stringify(obj, null, 2);
+        }
+        else if (mode === "json-to-env") {
+          const flat = flattenObj(JSON.parse(raw));
+          out = Object.entries(flat).map(([k, v]) => {
+            const key = k.replace(/[^a-zA-Z0-9]+/g, "_").toUpperCase();
+            const val = String(v ?? "");
+            return `${key}=${/[\s#]/.test(val) ? JSON.stringify(val) : val}`;
+          }).join("\n");
+        }
+        else if (mode === "qs-to-json") {
+          const q = raw.includes("?") ? raw.split("?")[1] : raw.trim();
+          const params = new URLSearchParams(q);
+          const obj = {};
+          for (const [k, v] of params.entries()) obj[k] = v;
+          out = JSON.stringify(obj, null, 2);
+        }
+        else if (mode === "json-to-qs") {
+          const obj = JSON.parse(raw);
+          const params = new URLSearchParams();
+          Object.entries(obj).forEach(([k, v]) => params.append(k, String(v)));
+          out = `?${params.toString()}`;
+        }
+        else if (mode === "sql-format") {
+          const kw = ["SELECT", "FROM", "WHERE", "LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "JOIN", "ON", "GROUP BY", "ORDER BY", "HAVING", "LIMIT", "INSERT INTO", "VALUES", "UPDATE", "SET", "DELETE FROM", "AND", "OR"];
+          let s = raw.replace(/\s+/g, " ").trim();
+          kw.forEach(k => {
+            const re = new RegExp(`\\b${k}\\b`, "gi");
+            s = s.replace(re, m => (k === "AND" || k === "OR" || k === "ON" ? `\n  ${k}` : `\n${k}`));
+          });
+          out = s.trim();
+        }
+        else if (mode === "sql-minify") {
+          out = raw.replace(/--.*$/gm, "").replace(/\s+/g, " ").trim();
+        }
+        else if (mode === "base64-encode" || mode === "base64url-encode") {
+          const bytes = new TextEncoder().encode(raw);
+          let bin = "";
+          bytes.forEach(b => bin += String.fromCharCode(b));
+          out = btoa(bin);
+          if (mode === "base64url-encode") out = out.replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+        }
+        else if (mode === "base64-decode" || mode === "base64url-decode") {
+          let b64 = raw.trim().replace(/-/g, "+").replace(/_/g, "/");
+          while (b64.length % 4) b64 += "=";
+          const bin = atob(b64);
+          const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+          out = new TextDecoder().decode(bytes);
+        }
+        else if (mode === "jwt-decode") {
+          const parts = raw.trim().split(".");
+          if (parts.length < 2) throw new Error("Invalid JWT format (expected header.payload.signature)");
+          const dec = seg => {
+            let b = seg.replace(/-/g, "+").replace(/_/g, "/");
+            while (b.length % 4) b += "=";
+            return JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(b), c => c.charCodeAt(0))));
+          };
+          const header = dec(parts[0]);
+          const payload = dec(parts[1]);
+          const meta = {};
+          if (payload.exp) {
+            meta.expiresAtUTC = new Date(payload.exp * 1000).toISOString();
+            meta.isExpired = Date.now() > payload.exp * 1000;
+          }
+          if (payload.iat) meta.issuedAtUTC = new Date(payload.iat * 1000).toISOString();
+          out = JSON.stringify({ header, payload, inspection: meta }, null, 2);
+        }
+        else if (mode === "url-encode") {
+          out = encodeURIComponent(raw);
+        }
+        else if (mode === "url-decode") {
+          out = decodeURIComponent(raw.replace(/\+/g, " "));
+        }
+        else if (mode === "html-encode") {
+          out = raw.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+        }
+        else if (mode === "html-decode") {
+          const doc = new DOMParser().parseFromString(raw, "text/html");
+          out = doc.documentElement.textContent;
+        }
+        else if (mode === "timestamp") {
+          const t = raw.trim();
+          const num = Number(t);
+          const d = !isNaN(num) ? new Date(t.length >= 13 ? num : num * 1000) : new Date(t);
+          if (isNaN(d.getTime())) throw new Error("Invalid timestamp or date string");
+          out = `Unix Seconds:      ${Math.floor(d.getTime() / 1000)}\nUnix Milliseconds: ${d.getTime()}\nISO 8601 (UTC):    ${d.toISOString()}\nLocal String:      ${d.toString()}`;
+        }
+        else if (mode === "sha256") {
+          const buf = new TextEncoder().encode(raw);
+          const hex = async alg => Array.from(new Uint8Array(await crypto.subtle.digest(alg, buf))).map(b => b.toString(16).padStart(2, "0")).join("");
+          out = `SHA-256:\n${await hex("SHA-256")}\n\nSHA-512:\n${await hex("SHA-512")}\n\nSHA-1:\n${await hex("SHA-1")}`;
+        }
+        else if (mode === "uuid-gen") {
+          const count = Math.max(1, parseInt(raw.trim()) || 1);
+          const list = Array.from({ length: Math.min(count, 5000) }, () => crypto.randomUUID());
+          out = gateList(list).join("\n");
+        }
+        else if (mode.startsWith("case-")) {
+          const lines = gateList(raw.split(/\r?\n/));
+          out = lines.map(l => {
+            const w = toWords(l);
+            if (!w.length) return "";
+            if (mode === "case-camel") return w.map((x, i) => i === 0 ? x.toLowerCase() : x[0].toUpperCase() + x.slice(1).toLowerCase()).join("");
+            if (mode === "case-pascal") return w.map(x => x[0].toUpperCase() + x.slice(1).toLowerCase()).join("");
+            if (mode === "case-snake") return w.map(x => x.toLowerCase()).join("_");
+            if (mode === "case-kebab") return w.map(x => x.toLowerCase()).join("-");
+            return l;
+          }).join("\n");
+        }
+        else if (mode === "dedupe-lines") {
+          const unique = [...new Set(raw.split(/\r?\n/).map(l => l.trim()).filter(Boolean))];
+          out = gateList(unique).join("\n");
+        }
+        else if (mode === "hex-to-utf8") {
+          const clean = raw.replace(/0x/gi, "").replace(/[^0-9a-fA-F]/g, "");
+          if (clean.length % 2 !== 0) throw new Error("Hex string must have an even number of characters");
+          const bytes = new Uint8Array(clean.match(/.{2}/g).map(h => parseInt(h, 16)));
+          out = new TextDecoder().decode(bytes);
+        }
+        else if (mode === "utf8-to-hex") {
+          out = Array.from(new TextEncoder().encode(raw)).map(b => b.toString(16).padStart(2, "0")).join(" ");
+        }
+        else if (mode === "bin-to-text") {
+          const clean = raw.replace(/[^01]/g, "");
+          if (clean.length % 8 !== 0) throw new Error("Binary input length must be a multiple of 8 bits");
+          const bytes = new Uint8Array(clean.match(/.{8}/g).map(b => parseInt(b, 2)));
+          out = new TextDecoder().decode(bytes);
+        }
+        else if (mode === "text-to-bin") {
+          out = Array.from(new TextEncoder().encode(raw)).map(b => b.toString(2).padStart(8, "0")).join(" ");
+        }
+        else if (mode === "json-to-go") {
+          const obj = Array.isArray(JSON.parse(raw)) ? JSON.parse(raw)[0] : JSON.parse(raw);
+          const fields = Object.entries(obj).map(([k, v]) => {
+            const name = toWords(k).map(w => w[0].toUpperCase() + w.slice(1)).join("") || "Field";
+            const goType = typeof v === "number" ? (Number.isInteger(v) ? "int" : "float64") : typeof v === "boolean" ? "bool" : Array.isArray(v) ? "[]interface{}" : "string";
+            return `\t${name} ${goType} \`json:"${k}"\``;
+          }).join("\n");
+          out = `type AutoGenerated struct {\n${fields}\n}`;
+        }
+        else if (mode === "json-to-python") {
+          const toPy = v => v === null ? "None" : typeof v === "boolean" ? (v ? "True" : "False") : Array.isArray(v) ? `[${v.map(toPy).join(", ")}]` : typeof v === "object" ? `{\n${Object.entries(v).map(([k, val]) => `    ${JSON.stringify(k)}: ${toPy(val)}`).join(",\n")}\n}` : JSON.stringify(v);
+          out = `data = ${toPy(JSON.parse(raw))}`;
+        }
+        else if (mode === "json-to-php") {
+          const toPhp = (v, ind = "") => v === null ? "null" : typeof v === "boolean" ? (v ? "true" : "false") : typeof v === "number" ? String(v) : Array.isArray(v) ? `[\n${v.map(x => `${ind}    ${toPhp(x, ind + "    ")}`).join(",\n")}\n${ind}]` : typeof v === "object" ? `[\n${Object.entries(v).map(([k, val]) => `${ind}    '${k.replace(/'/g, "\\'")}' => ${toPhp(val, ind + "    ")}`).join(",\n")}\n${ind}]` : `'${String(v).replace(/'/g, "\\'")}'`;
+          out = `<?php\n$data = ${toPhp(JSON.parse(raw))};`;
+        }
+        else if (mode === "csv-to-md" || mode === "json-to-md") {
+          let rows = [];
+          if (mode === "csv-to-md") rows = parseDelimited(raw, ",");
+          else {
+            let arr = JSON.parse(raw);
+            if (!Array.isArray(arr)) arr = [arr];
+            const headers = [...new Set(arr.flatMap(Object.keys))];
+            rows = [headers, ...arr.map(o => headers.map(h => o[h] ?? ""))];
+          }
+          const esc = s => String(s).replace(/\|/g, "\\|").trim();
+          const head = `| ${rows[0].map(esc).join(" | ")} |`;
+          const sep = `| ${rows[0].map(() => "---").join(" | ")} |`;
+          const body = gateList(rows.slice(1)).map(r => `| ${rows[0].map((_, i) => esc(r[i] ?? "")).join(" | ")} |`).join("\n");
+          out = `${head}\n${sep}\n${body}`;
+        }
+        else if (mode === "md-to-csv") {
+          const lines = raw.split(/\r?\n/).map(l => l.trim()).filter(l => l.includes("|") && !/^\|?[\s:-]+\|/.test(l));
+          out = gateList(lines).map(l => {
+            const cells = l.replace(/^\||\|$/g, "").split("|").map(c => c.trim());
+            return cells.map(c => /[",\n]/.test(c) ? `"${c.replace(/"/g, '""')}"` : c).join(",");
+          }).join("\n");
+        }
+        else if (mode === "css-minify") {
+          out = raw.replace(/\/\*[\s\S]*?\*\//g, "").replace(/\s+/g, " ").replace(/\s*([{}:;,])\s*/g, "$1").replace(/;}/g, "}").trim();
+        }
+        else if (mode === "css-format") {
+          out = raw.replace(/\s+/g, " ").replace(/\{/g, " {\n  ").replace(/;/g, ";\n  ").replace(/\s*\}/g, "\n}\n").replace(/\n\s*\n/g, "\n").trim();
+        }
+        else if (mode === "html-minify") {
+          out = raw.replace(/<!--[\s\S]*?-->/g, "").replace(/>\s+</g, "><").replace(/\s{2,}/g, " ").trim();
+        }
+        else if (mode === "regex-escape") {
+          out = raw.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        }
+        else if (mode === "curl-to-fetch") {
+          const urlMatch = raw.match(/https?:\/\/[^\s'"]+/);
+          const url = urlMatch ? urlMatch[0] : "https://api.example.com";
+          const methodMatch = raw.match(/-X\s+([A-Z]+)/i);
+          const dataMatch = raw.match(/(?:-d|--data|--data-raw)\s+(['"])([\s\S]*?)\1/);
+          const method = methodMatch ? methodMatch[1].toUpperCase() : (dataMatch ? "POST" : "GET");
+          const headers = {};
+          const hRe = /-H\s+(['"])(.*?)\1/g;
+          let m;
+          while ((m = hRe.exec(raw)) !== null) {
+            const idx = m[2].indexOf(":");
+            if (idx > -1) headers[m[2].slice(0, idx).trim()] = m[2].slice(idx + 1).trim();
+          }
+          const opts = { method };
+          if (Object.keys(headers).length) opts.headers = headers;
+          if (dataMatch) opts.body = dataMatch[2];
+          out = `const response = await fetch("${url}", ${JSON.stringify(opts, null, 2)});\nconst data = await response.json();\nconsole.log(data);`;
+        }
+        else if (mode === "hex-to-rgb") {
+          out = gateList(raw.split(/\r?\n/).filter(Boolean)).map(line => {
+            let h = line.trim().replace(/^#/, "");
+            if (h.length === 3) h = h.split("").map(c => c + c).join("");
+            if (!/^[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$/.test(h)) return `${line} -> Invalid HEX`;
+            const r = parseInt(h.slice(0, 2), 16), g = parseInt(h.slice(2, 4), 16), b = parseInt(h.slice(4, 6), 16);
+            const a = h.length === 8 ? +(parseInt(h.slice(6, 8), 16) / 255).toFixed(2) : 1;
+            return `#${h} -> rgb(${r}, ${g}, ${b}) | rgba(${r}, ${g}, ${b}, ${a})`;
+          }).join("\n");
+        }
+        else if (mode === "byte-convert") {
+          const t = raw.trim().toUpperCase();
+          const m = t.match(/^([\d.]+)\s*(B|BYTES|KB|MB|GB|TB|KIB|MIB|GIB)?$/);
+          if (!m) throw new Error("Enter a byte number (e.g. 1048576) or unit (e.g. 2.5GB)");
+          const val = parseFloat(m[1]);
+          const mult = { B: 1, BYTES: 1, KB: 1e3, MB: 1e6, GB: 1e9, TB: 1e12, KIB: 1024, MIB: 1024**2, GIB: 1024**3 }[m[2] || "B"];
+          const bytes = val * mult;
+          out = `Bytes: ${(bytes).toLocaleString()}\nKB (Decimal): ${(bytes / 1e3).toFixed(4)} KB  |  KiB (Binary): ${(bytes / 1024).toFixed(4)} KiB\nMB (Decimal): ${(bytes / 1e6).toFixed(4)} MB  |  MiB (Binary): ${(bytes / 1024**2).toFixed(4)} MiB\nGB (Decimal): ${(bytes / 1e9).toFixed(6)} GB  |  GiB (Binary): ${(bytes / 1024**3).toFixed(6)} GiB`;
+        }
+
+        outEl.value = out;
+        statusEl.className = "text-xs mt-2 text-emerald-400";
+        statusEl.textContent = "✓ Valid & converted locally";
+        metaEl.textContent = `${out.length.toLocaleString()} chars • ${out.split("\n").length} lines`;
+      } catch (err) {
+        statusEl.className = "text-xs mt-2 text-rose-400";
+        statusEl.textContent = `Error: ${err.message}`;
+      }
+    }
+
+    function copyOutput() {
+      const out = document.getElementById("outputArea").value;
+      if (!out) return;
+      navigator.clipboard.writeText(out);
+      const btn = document.getElementById("copyBtn");
+      btn.textContent = "Copied!";
+      setTimeout(() => btn.textContent = "Copy Result", 1500);
+    }
+
+    function downloadOutput() {
+      const out = document.getElementById("outputArea").value;
+      if (!out) return;
+      const blob = new Blob([out], { type: "text/plain;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `${currentTool.id}.${currentTool.ext || "txt"}`;
+      a.click();
+    }
+
+    async function activateLicense() {
+      const key = document.getElementById("licenseKeyInput").value.trim();
+      if (!key) return;
+      try {
+        const res = await fetch("https://api.lemonsqueezy.com/v1/licenses/activate", {
+          method: "POST",
+          headers: { "Accept": "application/json", "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({ license_key: key, instance_name: "DevDataConverterWeb" })
+        });
+        const data = await res.json();
+        if (data.activated || data.valid) {
+          localStorage.setItem("devconv_pro_unlocked", "true");
+          isProUnlocked = true;
+          runConvert();
+          alert("Bulk Pro Unlocked!");
+        } else {
+          alert("Invalid license key.");
+        }
+      } catch (e) {
+        alert("Connection error. Try again.");
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
