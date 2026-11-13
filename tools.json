@@ -1,0 +1,902 @@
+[
+  {
+    "id": "json-to-csv",
+    "slug": "json-to-csv-converter",
+    "toolName": "JSON to CSV Converter",
+    "mode": "json-to-csv",
+    "ext": "csv",
+    "title": "JSON to CSV Converter Online Free - Instant & Private",
+    "h1": "JSON to CSV Converter Online",
+    "description": "Convert JSON arrays and nested objects into clean CSV spreadsheets instantly in your browser. 100% client-side with zero server uploads.",
+    "sample": "[{\"id\":1,\"name\":\"Alice\",\"role\":\"Admin\"},{\"id\":2,\"name\":\"Bob\",\"role\":\"Editor\"}]",
+    "faqs": [
+      { "q": "How do I convert JSON to CSV online safely?", "a": "Paste your JSON array above; conversion runs 100% locally in your browser so sensitive data never leaves your device." },
+      { "q": "Does this support nested JSON keys?", "a": "Yes, nested objects are automatically flattened with dot notation into CSV columns." }
+    ]
+  },
+  {
+    "id": "csv-to-json",
+    "slug": "csv-to-json-converter",
+    "toolName": "CSV to JSON Converter",
+    "mode": "csv-to-json",
+    "ext": "json",
+    "title": "CSV to JSON Converter Online Free - Fast Array Parser",
+    "h1": "CSV to JSON Converter Online",
+    "description": "Transform CSV rows and headers into structured JSON objects instantly. Handles quoted commas and large datasets locally.",
+    "sample": "id,name,email\n1,Alice,alice@example.com\n2,Bob,bob@example.com",
+    "faqs": [
+      { "q": "How are CSV headers converted to JSON?", "a": "The first row is automatically used as JSON property keys for every subsequent row." },
+      { "q": "Can I convert large CSV files?", "a": "Free tier processes up to 50 rows instantly; Pro unlocks unlimited rows and 1-click JSON file export." }
+    ]
+  },
+  {
+    "id": "json-formatter",
+    "slug": "json-formatter-validator",
+    "toolName": "JSON Formatter & Validator",
+    "mode": "json-format",
+    "ext": "json",
+    "title": "JSON Formatter, Beautifier & Validator Online Free",
+    "h1": "JSON Formatter & Syntax Validator",
+    "description": "Prettify minified JSON with 2-space indentation and detect syntax errors immediately in your browser.",
+    "sample": "{\"status\":\"ok\",\"user\":{\"id\":42,\"active\":true},\"tags\":[\"api\",\"v2\"]}",
+    "faqs": [
+      { "q": "How do I validate malformed JSON?", "a": "Paste your JSON string above; any syntax or trailing comma error is highlighted with an exact error message." },
+      { "q": "Is my API payload sent to any server?", "a": "No, all formatting executes strictly inside your browser memory." }
+    ]
+  },
+  {
+    "id": "json-minifier",
+    "slug": "json-minifier-compressor",
+    "toolName": "JSON Minifier & Compressor",
+    "mode": "json-minify",
+    "ext": "json",
+    "title": "JSON Minifier & Whitespace Compressor Online Free",
+    "h1": "JSON Minifier & Compressor",
+    "description": "Strip whitespace, newlines, and indentation from JSON payloads to reduce API bandwidth and storage size.",
+    "sample": "{\n  \"name\": \"Product A\",\n  \"price\": 49.99,\n  \"inStock\": true\n}",
+    "faqs": [
+      { "q": "Why minify JSON before sending over an API?", "a": "Minifying removes unnecessary whitespace, reducing payload size by 15% to 40%." },
+      { "q": "Does minifying alter JSON values?", "a": "No, string values and data types remain completely untouched." }
+    ]
+  },
+  {
+    "id": "sql-formatter",
+    "slug": "sql-query-formatter-beautifier",
+    "toolName": "SQL Query Formatter",
+    "mode": "sql-format",
+    "ext": "sql",
+    "title": "SQL Query Formatter & Beautifier Online Free",
+    "h1": "SQL Query Formatter & Beautifier",
+    "description": "Format messy single-line SELECT, JOIN, WHERE, and GROUP BY SQL queries into readable indented blocks.",
+    "sample": "select u.id, u.name, count(o.id) as total from users u left join orders o on u.id = o.user_id where u.active = 1 group by u.id order by total desc;",
+    "faqs": [
+      { "q": "Which SQL dialects are supported?", "a": "Works with standard ANSI SQL, MySQL, PostgreSQL, SQLite, and SQL Server queries." },
+      { "q": "Does it uppercase SQL keywords?", "a": "Yes, clauses like SELECT, FROM, WHERE, JOIN, and ORDER BY are automatically capitalized." }
+    ]
+  },
+  {
+    "id": "sql-minifier",
+    "slug": "sql-minifier-single-line",
+    "toolName": "SQL Minifier (Single Line)",
+    "mode": "sql-minify",
+    "ext": "sql",
+    "title": "SQL Minifier & Single-Line Query Compressor Online",
+    "h1": "SQL Query Minifier",
+    "description": "Compress multi-line SQL scripts and comments into a compact single-line string for code embedding and logs.",
+    "sample": "SELECT id, email\nFROM customers\n-- active only\nWHERE status = 'paid';",
+    "faqs": [
+      { "q": "Does the SQL minifier remove SQL comments?", "a": "Yes, single-line -- comments and extra line breaks are stripped cleanly." },
+      { "q": "Will string literals inside quotes stay intact?", "a": "Yes, spacing inside single-quoted values is preserved." }
+    ]
+  },
+  {
+    "id": "base64-encode",
+    "slug": "base64-encoder-online",
+    "toolName": "Base64 Encoder",
+    "mode": "base64-encode",
+    "ext": "txt",
+    "title": "Base64 Encoder Online Free - UTF-8 Text to Base64",
+    "h1": "Base64 Text Encoder",
+    "description": "Encode plain text, JSON, or credentials into Base64 strings with full UTF-8 and emoji support.",
+    "sample": "Hello World! API_KEY=12345",
+    "faqs": [
+      { "q": "Does this Base64 encoder support UTF-8 characters?", "a": "Yes, multi-byte UTF-8 characters and symbols encode accurately without corruption." },
+      { "q": "Is Base64 encryption?", "a": "No, Base64 is an encoding scheme for safe transport, not cryptographic encryption." }
+    ]
+  },
+  {
+    "id": "base64-decode",
+    "slug": "base64-decoder-online",
+    "toolName": "Base64 Decoder",
+    "mode": "base64-decode",
+    "ext": "txt",
+    "title": "Base64 Decoder Online Free - Base64 to Plain Text",
+    "h1": "Base64 String Decoder",
+    "description": "Decode Base64 strings back into readable UTF-8 text or JSON instantly in your browser.",
+    "sample": "SGVsbG8gV29ybGQhIEFQSV9LRVk9MTIzNDU=",
+    "faqs": [
+      { "q": "How do I decode a Base64 string?", "a": "Paste the Base64 string into the input box above to reveal the decoded text immediately." },
+      { "q": "What if my Base64 string uses URL-safe characters?", "a": "It automatically normalizes - and _ characters before decoding." }
+    ]
+  },
+  {
+    "id": "jwt-decoder",
+    "slug": "jwt-token-decoder-inspector",
+    "toolName": "JWT Token Decoder",
+    "mode": "jwt-decode",
+    "ext": "json",
+    "title": "JWT Token Decoder & Payload Inspector Online Free",
+    "h1": "JWT (JSON Web Token) Decoder",
+    "description": "Decode JWT header and payload claims locally without sending authentication tokens to any backend server.",
+    "sample": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNzE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+    "faqs": [
+      { "q": "Is it safe to paste my JWT token here?", "a": "Yes, decoding runs 100% client-side in JavaScript; your token is never transmitted over the network." },
+      { "q": "Does this show human-readable expiration dates?", "a": "Yes, exp and iat timestamps are automatically converted to UTC date strings." }
+    ]
+  },
+  {
+    "id": "url-encode",
+    "slug": "url-encoder-percent-encoding",
+    "toolName": "URL Encoder",
+    "mode": "url-encode",
+    "ext": "txt",
+    "title": "URL Encoder Online Free - Percent-Encoding Tool",
+    "h1": "URL String Encoder (encodeURIComponent)",
+    "description": "Encode special characters, spaces, and query parameters into valid percent-encoded URL strings.",
+    "sample": "https://example.com/search?q=hello world & price=$50",
+    "faqs": [
+      { "q": "When should I use URL encoding?", "a": "Use URL encoding when passing text containing spaces, &, =, or ? inside query parameters." },
+      { "q": "Which JavaScript method does this use?", "a": "It uses standard RFC 3986 encodeURIComponent formatting." }
+    ]
+  },
+  {
+    "id": "url-decode",
+    "slug": "url-decoder-unescape",
+    "toolName": "URL Decoder",
+    "mode": "url-decode",
+    "ext": "txt",
+    "title": "URL Decoder Online Free - Decode Percent-Encoded URLs",
+    "h1": "URL String Decoder",
+    "description": "Convert percent-encoded URLs (%20, %2F, %3D) back into clean, human-readable text.",
+    "sample": "https%3A%2F%2Fexample.com%2Fsearch%3Fq%3Dhello%20world%26id%3D99",
+    "faqs": [
+      { "q": "How do I decode %20 and %2F in a URL?", "a": "Paste the encoded URL above to unescape all percent-encoded sequences instantly." },
+      { "q": "Does it convert + signs to spaces?", "a": "Yes, query-string + characters are decoded properly." }
+    ]
+  },
+  {
+    "id": "json-to-typescript",
+    "slug": "json-to-typescript-interface",
+    "toolName": "JSON to TypeScript Interface",
+    "mode": "json-to-ts",
+    "ext": "ts",
+    "title": "JSON to TypeScript Interface Generator Online Free",
+    "h1": "JSON to TypeScript Interface Generator",
+    "description": "Generate strongly-typed TypeScript interfaces automatically from any JSON API response.",
+    "sample": "{\"id\":101,\"username\":\"dev_user\",\"verified\":true,\"scores\":[98,87]}",
+    "faqs": [
+      { "q": "How does it infer TypeScript types?", "a": "It inspects string, number, boolean, array, and nested object values to generate accurate TS types." },
+      { "q": "Can I copy the generated interfaces directly into VS Code?", "a": "Yes, click Copy Result to paste valid export interface definitions into your project." }
+    ]
+  },
+  {
+    "id": "json-to-sql",
+    "slug": "json-to-sql-table-insert",
+    "toolName": "JSON to SQL Table & INSERT",
+    "mode": "json-to-sql",
+    "ext": "sql",
+    "title": "JSON to SQL CREATE TABLE & INSERT Generator Online",
+    "h1": "JSON to SQL Schema & INSERT Generator",
+    "description": "Convert JSON objects into SQL CREATE TABLE schemas and ready-to-run INSERT INTO statements.",
+    "sample": "[{\"id\":1,\"title\":\"Laptop\",\"price\":1200},{\"id\":2,\"title\":\"Mouse\",\"price\":25}]",
+    "faqs": [
+      { "q": "Does this generate both CREATE TABLE and INSERT queries?", "a": "Yes, it infers column data types and builds both DDL and DML statements." },
+      { "q": "Are single quotes in strings escaped?", "a": "Yes, single quotes are safely escaped as '' for SQL compatibility." }
+    ]
+  },
+  {
+    "id": "json-to-xml",
+    "slug": "json-to-xml-converter",
+    "toolName": "JSON to XML Converter",
+    "mode": "json-to-xml",
+    "ext": "xml",
+    "title": "JSON to XML Converter Online Free - Clean XML Output",
+    "h1": "JSON to XML Converter",
+    "description": "Transform JSON objects and arrays into properly indented, valid XML documents in one click.",
+    "sample": "{\"order\":{\"id\":5001,\"currency\":\"USD\",\"items\":[\"Book\",\"Pen\"]}}",
+    "faqs": [
+      { "q": "How are JSON arrays converted to XML?", "a": "Array elements are wrapped in repeated <item> tags under their parent element." },
+      { "q": "Are special XML characters escaped?", "a": "Yes, &, <, >, and quotes are automatically converted to safe XML entities." }
+    ]
+  },
+  {
+    "id": "xml-to-json",
+    "slug": "xml-to-json-converter",
+    "toolName": "XML to JSON Converter",
+    "mode": "xml-to-json",
+    "ext": "json",
+    "title": "XML to JSON Converter Online Free - DOM Parser",
+    "h1": "XML to JSON Converter",
+    "description": "Parse XML feeds, SOAP responses, and config files into clean JSON objects using your browser's native XML parser.",
+    "sample": "<user id=\"7\"><name>Sarah</name><role>Developer</role></user>",
+    "faqs": [
+      { "q": "Does this preserve XML attributes?", "a": "Yes, XML element attributes are preserved under an @attributes object." },
+      { "q": "What if my XML has syntax errors?", "a": "The built-in DOMParser immediately reports malformed XML tags." }
+    ]
+  },
+  {
+    "id": "html-encode",
+    "slug": "html-entities-encoder",
+    "toolName": "HTML Entities Encoder",
+    "mode": "html-encode",
+    "ext": "txt",
+    "title": "HTML Entities Encoder Online Free - Escape HTML Tags",
+    "h1": "HTML Entities Encoder",
+    "description": "Escape <, >, &, and quote characters into safe HTML entities (&lt;, &gt;, &amp;) to prevent XSS and display code snippets.",
+    "sample": "<div class=\"alert\">Price < $100 & Free Shipping!</div>",
+    "faqs": [
+      { "q": "Why escape HTML characters?", "a": "Escaping prevents browsers from executing raw tags and prevents Cross-Site Scripting (XSS)." },
+      { "q": "Which characters are converted?", "a": "&, <, >, double quotes, and single quotes are converted to named entities." }
+    ]
+  },
+  {
+    "id": "html-decode",
+    "slug": "html-entities-decoder",
+    "toolName": "HTML Entities Decoder",
+    "mode": "html-decode",
+    "ext": "txt",
+    "title": "HTML Entities Decoder Online Free - Unescape HTML",
+    "h1": "HTML Entities Decoder",
+    "description": "Decode escaped HTML entities (&lt;div&gt;, &quot;, &#39;, &amp;) back into raw HTML markup.",
+    "sample": "&lt;h1&gt;Welcome &amp; Hello&lt;/h1&gt;",
+    "faqs": [
+      { "q": "Does this decode numeric HTML entities like &#39;?", "a": "Yes, both named entities (&amp;) and numeric character references are decoded." },
+      { "q": "Is the decoded HTML executed on this page?", "a": "No, output is rendered safely inside a plain-text textarea." }
+    ]
+  },
+  {
+    "id": "timestamp-converter",
+    "slug": "unix-timestamp-epoch-converter",
+    "toolName": "Unix Timestamp Converter",
+    "mode": "timestamp",
+    "ext": "txt",
+    "title": "Unix Timestamp (Epoch) to Date Converter Online Free",
+    "h1": "Unix Timestamp & Epoch Converter",
+    "description": "Convert Unix epoch seconds or milliseconds to ISO 8601, UTC, and local dates—or convert date strings back to epoch.",
+    "sample": "1794585600",
+    "faqs": [
+      { "q": "Does this support both seconds and milliseconds?", "a": "Yes, 10-digit timestamps are treated as seconds and 13-digit timestamps as milliseconds." },
+      { "q": "Can I enter a date string instead of numbers?", "a": "Yes, entering a date like 2026-11-13 converts it into Unix epoch seconds and milliseconds." }
+    ]
+  },
+  {
+    "id": "sha256-generator",
+    "slug": "sha256-sha512-hash-generator",
+    "toolName": "SHA-256 / SHA-512 Hash Generator",
+    "mode": "sha256",
+    "ext": "txt",
+    "title": "SHA-256 & SHA-512 Hash Generator Online Free",
+    "h1": "Cryptographic Hash Generator (SHA-256 / SHA-512)",
+    "description": "Compute SHA-1, SHA-256, and SHA-512 checksum hashes locally using the browser's native Web Crypto API.",
+    "sample": "my-secret-payload-2026",
+    "faqs": [
+      { "q": "Is my text transmitted over the internet to generate the hash?", "a": "Never—hashes are computed locally via window.crypto.subtle." },
+      { "q": "Can a SHA-256 hash be reversed?", "a": "No, SHA-256 is a one-way cryptographic hash function." }
+    ]
+  },
+  {
+    "id": "uuid-generator",
+    "slug": "bulk-uuid-v4-generator",
+    "toolName": "Bulk UUID v4 Generator",
+    "mode": "uuid-gen",
+    "ext": "txt",
+    "title": "Bulk UUID v4 Generator Online Free - Crypto Random",
+    "h1": "UUID v4 Generator (Single & Bulk)",
+    "description": "Generate cryptographically secure RFC 4122 Version 4 UUIDs instantly. Enter the desired count (e.g. 10 or 50).",
+    "sample": "10",
+    "faqs": [
+      { "q": "How are these UUIDs generated?", "a": "They are generated using your browser's hardware-backed crypto.randomUUID() API." },
+      { "q": "How many UUIDs can I generate at once?", "a": "Enter any number in the input box (up to 50 free, unlimited with Pro)." }
+    ]
+  },
+  {
+    "id": "tsv-to-json",
+    "slug": "tsv-to-json-converter",
+    "toolName": "TSV to JSON Converter",
+    "mode": "tsv-to-json",
+    "ext": "json",
+    "title": "TSV (Tab-Separated) to JSON Converter Online Free",
+    "h1": "TSV to JSON Converter",
+    "description": "Paste tab-separated data copied directly from Excel or Google Sheets and convert it into a JSON array.",
+    "sample": "sku\tproduct\tqty\nA10\tKeyboard\t15\nA11\tMonitor\t8",
+    "faqs": [
+      { "q": "Can I copy cells directly from Excel or Google Sheets?", "a": "Yes, copying spreadsheet cells produces TSV text which converts directly to JSON here." },
+      { "q": "Does it trim trailing spaces?", "a": "Yes, header names and cell values are cleanly trimmed." }
+    ]
+  },
+  {
+    "id": "json-to-tsv",
+    "slug": "json-to-tsv-excel-converter",
+    "toolName": "JSON to TSV (Excel Paste)",
+    "mode": "json-to-tsv",
+    "ext": "tsv",
+    "title": "JSON to TSV Converter Online - Copy Paste to Excel",
+    "h1": "JSON to TSV Converter (Excel / Sheets Ready)",
+    "description": "Convert JSON arrays into tab-separated values ready to paste directly into Microsoft Excel or Google Sheets.",
+    "sample": "[{\"code\":\"US\",\"users\":1200},{\"code\":\"ID\",\"users\":950}]",
+    "faqs": [
+      { "q": "Why convert JSON to TSV instead of CSV for Excel?", "a": "TSV pastes directly into spreadsheet columns without comma delimiter conflicts." },
+      { "q": "How do I move the output into Google Sheets?", "a": "Click Copy Result and press Ctrl+V (or Cmd+V) in cell A1." }
+    ]
+  },
+  {
+    "id": "csv-to-sql",
+    "slug": "csv-to-sql-insert-generator",
+    "toolName": "CSV to SQL INSERT Generator",
+    "mode": "csv-to-sql",
+    "ext": "sql",
+    "title": "CSV to SQL INSERT Statements Generator Online Free",
+    "h1": "CSV to SQL INSERT Query Generator",
+    "description": "Convert CSV spreadsheet rows into ready-to-execute SQL INSERT INTO statements automatically.",
+    "sample": "id,username,plan\n1,sarah,pro\n2,david,free",
+    "faqs": [
+      { "q": "How are column names determined?", "a": "The first CSV row is sanitized and used as SQL column identifiers." },
+      { "q": "Are numbers inserted without quotes?", "a": "Yes, numeric values are unquoted while text values are safely single-quoted." }
+    ]
+  },
+  {
+    "id": "json-escape",
+    "slug": "json-string-escaper",
+    "toolName": "JSON String Escaper",
+    "mode": "json-escape",
+    "ext": "txt",
+    "title": "JSON String Escaper Online Free - Escape Quotes & Newlines",
+    "h1": "JSON String Escaper",
+    "description": "Escape double quotes, backslashes, and line breaks so raw text or JSON can be embedded inside a JSON string value.",
+    "sample": "Line 1: \"Hello\"\nLine 2: C:\\Users\\Admin",
+    "faqs": [
+      { "q": "When do I need to escape a JSON string?", "a": "Whenever you embed multi-line text, HTML, or nested JSON inside a string field." },
+      { "q": "Does this wrap the output in outer quotes?", "a": "It outputs the properly escaped string ready for JSON payloads." }
+    ]
+  },
+  {
+    "id": "json-unescape",
+    "slug": "json-string-unescaper",
+    "toolName": "JSON String Unescaper",
+    "mode": "json-unescape",
+    "ext": "txt",
+    "title": "JSON String Unescaper Online Free - Remove Backslashes",
+    "h1": "JSON String Unescaper",
+    "description": "Unescape \\n, \\t, \\\", and \\\\ sequences from serialized JSON logs into clean readable text.",
+    "sample": "\"{\\\"id\\\":1,\\\"msg\\\":\\\"Hello\\\\nWorld\\\"}\"",
+    "faqs": [
+      { "q": "How do I clean escaped JSON from server logs?", "a": "Paste the escaped string above to strip escape slashes and expand newlines." },
+      { "q": "Does it work with or without outer quotes?", "a": "Yes, both quoted and unquoted escaped strings are handled automatically." }
+    ]
+  },
+  {
+    "id": "json-sort-keys",
+    "slug": "sort-json-keys-alphabetically",
+    "toolName": "Sort JSON Keys Alphabetically",
+    "mode": "json-sort",
+    "ext": "json",
+    "title": "Sort JSON Object Keys Alphabetically Online Free",
+    "h1": "Sort JSON Keys Alphabetically (Recursive)",
+    "description": "Recursively sort all object keys in a JSON structure alphabetically (A–Z) for clean diffs and deterministic hashing.",
+    "sample": "{\"zebra\":1,\"alpha\":{\"z\":9,\"a\":1},\"middle\":true}",
+    "faqs": [
+      { "q": "Does this sort nested objects too?", "a": "Yes, every nested object at every depth is sorted recursively A to Z." },
+      { "q": "Are array item orders changed?", "a": "No, array element order is preserved while objects inside arrays have their keys sorted." }
+    ]
+  },
+  {
+    "id": "json-flatten",
+    "slug": "flatten-nested-json-dot-notation",
+    "toolName": "Flatten Nested JSON",
+    "mode": "json-flatten",
+    "ext": "json",
+    "title": "Flatten Nested JSON to Dot Notation Online Free",
+    "h1": "Flatten Nested JSON Object",
+    "description": "Convert deeply nested JSON trees into a single-level flat key-value object using dot notation.",
+    "sample": "{\"user\":{\"profile\":{\"name\":\"Alex\",\"city\":\"Bandung\"}},\"active\":true}",
+    "faqs": [
+      { "q": "What does flattened JSON look like?", "a": "Nested paths like user.profile.name become top-level keys with primitive values." },
+      { "q": "Why flatten JSON?", "a": "Flattening simplifies exporting JSON to spreadsheets, key-value stores, and analytics pipelines." }
+    ]
+  },
+  {
+    "id": "yaml-to-json",
+    "slug": "yaml-to-json-converter",
+    "toolName": "YAML to JSON Converter",
+    "mode": "yaml-to-json",
+    "ext": "json",
+    "title": "YAML to JSON Converter Online Free - Config Parser",
+    "h1": "YAML to JSON Converter",
+    "description": "Convert YAML configuration files (Docker, Kubernetes, GitHub Actions) into formatted JSON instantly.",
+    "sample": "service: api-gateway\nport: 8080\nenabled: true\nenv:\n  region: ap-southeast-1",
+    "faqs": [
+      { "q": "Are YAML comments ignored safely?", "a": "Yes, # comments are stripped while key-value hierarchies are converted to JSON." },
+      { "q": "Are numbers and booleans typed properly?", "a": "Yes, true/false and numeric values become native JSON booleans and numbers." }
+    ]
+  },
+  {
+    "id": "json-to-yaml",
+    "slug": "json-to-yaml-converter",
+    "toolName": "JSON to YAML Converter",
+    "mode": "json-to-yaml",
+    "ext": "yaml",
+    "title": "JSON to YAML Converter Online Free - Clean Indentation",
+    "h1": "JSON to YAML Converter",
+    "description": "Transform JSON objects and arrays into clean, human-readable YAML syntax for config files.",
+    "sample": "{\"app\":\"worker\",\"replicas\":3,\"features\":[\"auth\",\"cache\"]}",
+    "faqs": [
+      { "q": "How are JSON arrays formatted in YAML?", "a": "Arrays are converted into standard hyphenated YAML lists." },
+      { "q": "Does this run offline in the browser?", "a": "Yes, all conversion runs locally without uploading configuration secrets." }
+    ]
+  },
+  {
+    "id": "env-to-json",
+    "slug": "env-file-to-json-converter",
+    "toolName": ".ENV to JSON Converter",
+    "mode": "env-to-json",
+    "ext": "json",
+    "title": ".ENV Environment File to JSON Converter Online Free",
+    "h1": ".ENV to JSON Converter",
+    "description": "Convert KEY=VALUE .env files into structured JSON objects for AWS Secrets Manager, Vercel, or Docker.",
+    "sample": "NODE_ENV=production\nPORT=3000\nAPI_URL=\"https://api.example.com\"",
+    "faqs": [
+      { "q": "Is it safe to paste API keys from my .env file?", "a": "Yes, everything runs 100% locally in your browser memory—nothing is sent to any server." },
+      { "q": "Does it strip surrounding quotes from values?", "a": "Yes, single and double quotes around values are automatically unwrapped." }
+    ]
+  },
+  {
+    "id": "json-to-env",
+    "slug": "json-to-env-converter",
+    "toolName": "JSON to .ENV Converter",
+    "mode": "json-to-env",
+    "ext": "env",
+    "title": "JSON to .ENV File Converter Online Free",
+    "h1": "JSON to .ENV Key-Value Converter",
+    "description": "Convert flat or nested JSON secret objects into uppercase KEY=VALUE .env lines.",
+    "sample": "{\"database\":{\"host\":\"localhost\",\"port\":5432},\"debug\":false}",
+    "faqs": [
+      { "q": "How are nested JSON keys converted to .ENV variables?", "a": "Nested keys are joined with underscores and uppercased (e.g., DATABASE_HOST)." },
+      { "q": "Are values containing spaces quoted automatically?", "a": "Yes, values with spaces or special characters are wrapped in double quotes." }
+    ]
+  },
+  {
+    "id": "query-string-to-json",
+    "slug": "url-query-string-to-json",
+    "toolName": "URL Query String to JSON",
+    "mode": "qs-to-json",
+    "ext": "json",
+    "title": "URL Query String Parameters to JSON Parser Online Free",
+    "h1": "URL Query String to JSON Converter",
+    "description": "Extract and decode URL query parameters (?utm_source=...&page=2) into a clean JSON object.",
+    "sample": "https://example.com/items?category=books&sort=asc&page=2&tag=tech",
+    "faqs": [
+      { "q": "Can I paste a full URL with domain and path?", "a": "Yes, the parser automatically extracts everything after the ? symbol." },
+      { "q": "Are URL-encoded parameter values decoded?", "a": "Yes, URLSearchParams automatically decodes all keys and values." }
+    ]
+  },
+  {
+    "id": "json-to-query-string",
+    "slug": "json-to-url-query-string",
+    "toolName": "JSON to URL Query String",
+    "mode": "json-to-qs",
+    "ext": "txt",
+    "title": "JSON Object to URL Query String Builder Online Free",
+    "h1": "JSON to URL Query String Converter",
+    "description": "Serialize a JSON key-value object into a properly percent-encoded URL query string.",
+    "sample": "{\"search\":\"wireless mouse\",\"minPrice\":10,\"inStock\":true}",
+    "faqs": [
+      { "q": "Are special characters automatically URL-encoded?", "a": "Yes, spaces and reserved characters are encoded via URLSearchParams." },
+      { "q": "Does the output include the leading question mark?", "a": "Yes, it outputs a ready-to-append ?key=value query string." }
+    ]
+  },
+  {
+    "id": "camelcase-converter",
+    "slug": "text-to-camelcase-converter",
+    "toolName": "Text to camelCase Converter",
+    "mode": "case-camel",
+    "ext": "txt",
+    "title": "Text & Snake_Case to camelCase Converter Online Free",
+    "h1": "camelCase Variable Name Converter",
+    "description": "Convert snake_case, kebab-case, or space-separated phrases into JavaScript/Java camelCase identifiers.",
+    "sample": "user_first_name\nget-total-order-amount\ncreated at timestamp",
+    "faqs": [
+      { "q": "Can I convert multiple lines of variable names at once?", "a": "Yes, each line is converted independently into camelCase." },
+      { "q": "Where is camelCase used?", "a": "camelCase is the standard naming convention for JavaScript, TypeScript, and Java variables." }
+    ]
+  },
+  {
+    "id": "snakecase-converter",
+    "slug": "text-to-snake-case-converter",
+    "toolName": "Text to snake_case Converter",
+    "mode": "case-snake",
+    "ext": "txt",
+    "title": "camelCase & Text to snake_case Converter Online Free",
+    "h1": "snake_case Identifier Converter",
+    "description": "Convert camelCase, PascalCase, or plain text into lowercase Python and SQL snake_case identifiers.",
+    "sample": "userFirstName\ngetTotalOrderAmount\nCreated At Timestamp",
+    "faqs": [
+      { "q": "Where is snake_case standard?", "a": "snake_case is standard in Python, Rust, Ruby, and PostgreSQL/MySQL column names." },
+      { "q": "Does this handle consecutive uppercase letters?", "a": "Yes, camelCase boundaries are split cleanly into underscores." }
+    ]
+  },
+  {
+    "id": "kebabcase-converter",
+    "slug": "text-to-kebab-case-slug-generator",
+    "toolName": "Text to kebab-case (SEO Slug)",
+    "mode": "case-kebab",
+    "ext": "txt",
+    "title": "Text to kebab-case & SEO URL Slug Generator Online Free",
+    "h1": "kebab-case & SEO URL Slug Converter",
+    "description": "Convert titles, camelCase, and underscores into clean lowercase hyphenated kebab-case URL slugs.",
+    "sample": "How to Build a Fast Web App in 2026!\nuserProfileSettings",
+    "faqs": [
+      { "q": "Why use kebab-case for URLs?", "a": "Google recommends lowercase hyphen-separated words for clean, readable SEO URLs." },
+      { "q": "Does this strip punctuation marks?", "a": "Yes, special symbols are removed while words are joined with single hyphens." }
+    ]
+  },
+  {
+    "id": "pascalcase-converter",
+    "slug": "text-to-pascalcase-converter",
+    "toolName": "Text to PascalCase Converter",
+    "mode": "case-pascal",
+    "ext": "txt",
+    "title": "Text & snake_case to PascalCase Class Converter Online",
+    "h1": "PascalCase Class & Component Converter",
+    "description": "Convert snake_case, kebab-case, or phrases into UpperCamelCase (PascalCase) for React components and C# classes.",
+    "sample": "user_profile_card\norder-summary-modal\ninvoice generator",
+    "faqs": [
+      { "q": "Where is PascalCase required?", "a": "PascalCase is standard for React/Vue components, TypeScript interfaces, C#, and Go exported types." },
+      { "q": "Can I convert a bulk list of names?", "a": "Yes, paste one name per line to convert them all at once." }
+    ]
+  },
+  {
+    "id": "remove-duplicate-lines",
+    "slug": "remove-duplicate-lines-online",
+    "toolName": "Remove Duplicate Lines",
+    "mode": "dedupe-lines",
+    "ext": "txt",
+    "title": "Remove Duplicate Lines & Clean List Online Free",
+    "h1": "Remove Duplicate Lines Tool",
+    "description": "Deduplicate lists of emails, keywords, IDs, or URLs while preserving original order in milliseconds.",
+    "sample": "apple\nbanana\napple\norange\nbanana\ngrape",
+    "faqs": [
+      { "q": "Does this preserve the original order of unique items?", "a": "Yes, it keeps the first occurrence of each line and removes subsequent duplicates." },
+      { "q": "Are empty blank lines removed?", "a": "Yes, trailing whitespace and blank lines are cleaned automatically." }
+    ]
+  },
+  {
+    "id": "hex-to-utf8",
+    "slug": "hex-to-utf8-text-decoder",
+    "toolName": "Hex to UTF-8 Text Decoder",
+    "mode": "hex-to-utf8",
+    "ext": "txt",
+    "title": "Hexadecimal to UTF-8 Text Converter Online Free",
+    "h1": "Hex to UTF-8 Text Decoder",
+    "description": "Decode hexadecimal byte strings (with or without 0x prefixes or spaces) into readable UTF-8 text.",
+    "sample": "48 65 6c 6c 6f 20 57 6f 72 6c 64",
+    "faqs": [
+      { "q": "Does it accept hex strings with spaces or 0x prefixes?", "a": "Yes, spaces, colons, and 0x prefixes are automatically stripped before decoding." },
+      { "q": "Does this support multi-byte UTF-8 emojis?", "a": "Yes, TextDecoder decodes full UTF-8 byte sequences accurately." }
+    ]
+  },
+  {
+    "id": "utf8-to-hex",
+    "slug": "utf8-text-to-hex-encoder",
+    "toolName": "UTF-8 Text to Hex Encoder",
+    "mode": "utf8-to-hex",
+    "ext": "txt",
+    "title": "UTF-8 Text to Hexadecimal Encoder Online Free",
+    "h1": "Text to Hexadecimal (Hex) Encoder",
+    "description": "Convert ASCII and UTF-8 text strings into space-separated hexadecimal byte representations.",
+    "sample": "Hello World",
+    "faqs": [
+      { "q": "How are characters encoded to hex?", "a": "Each character is converted to its UTF-8 byte sequence and formatted as two-digit hex values." },
+      { "q": "Is it uppercase or lowercase hex?", "a": "It outputs clean lowercase hexadecimal pairs separated by spaces." }
+    ]
+  },
+  {
+    "id": "binary-to-text",
+    "slug": "binary-to-text-converter",
+    "toolName": "Binary to Text Converter",
+    "mode": "bin-to-text",
+    "ext": "txt",
+    "title": "Binary (0101) to ASCII / UTF-8 Text Converter Online",
+    "h1": "Binary Code to Text Decoder",
+    "description": "Translate 8-bit binary sequences (0s and 1s) back into readable ASCII and UTF-8 text.",
+    "sample": "01001000 01101001 00100001",
+    "faqs": [
+      { "q": "Do I need spaces between 8-bit binary bytes?", "a": "Spaces are optional—both space-separated bytes and continuous 8-bit streams work." },
+      { "q": "Does this support UTF-8 characters?", "a": "Yes, bytes are decoded using standard UTF-8 TextDecoder." }
+    ]
+  },
+  {
+    "id": "text-to-binary",
+    "slug": "text-to-binary-converter",
+    "toolName": "Text to Binary Converter",
+    "mode": "text-to-bin",
+    "ext": "txt",
+    "title": "Text to 8-Bit Binary Code Converter Online Free",
+    "h1": "Text to Binary Code Encoder",
+    "description": "Convert plain text into 8-bit binary code representation instantly in your browser.",
+    "sample": "Hi!",
+    "faqs": [
+      { "q": "How many bits are generated per ASCII character?", "a": "Each standard ASCII byte is padded to 8 binary digits (e.g., 01001000)." },
+      { "q": "Does this work with emojis and accents?", "a": "Yes, multi-byte UTF-8 characters are converted into their full binary byte sequences." }
+    ]
+  },
+  {
+    "id": "base64-url-encode",
+    "slug": "base64url-safe-encoder",
+    "toolName": "Base64URL Safe Encoder",
+    "mode": "base64url-encode",
+    "ext": "txt",
+    "title": "Base64URL Safe Encoder Online Free (RFC 4648)",
+    "h1": "Base64URL Safe Encoder",
+    "description": "Encode text into URL- and filename-safe Base64URL format (replacing + with -, / with _, and stripping = padding).",
+    "sample": "{\"alg\":\"HS256\",\"typ\":\"JWT\"}",
+    "faqs": [
+      { "q": "How does Base64URL differ from standard Base64?", "a": "Base64URL replaces + and / with - and _ and omits trailing = padding so tokens work safely in URLs." },
+      { "q": "Where is Base64URL used?", "a": "It is required by JWT tokens, OAuth2 PKCE challenges, and WebAuthn payloads." }
+    ]
+  },
+  {
+    "id": "base64-url-decode",
+    "slug": "base64url-safe-decoder",
+    "toolName": "Base64URL Safe Decoder",
+    "mode": "base64url-decode",
+    "ext": "txt",
+    "title": "Base64URL Safe Decoder Online Free (RFC 4648)",
+    "h1": "Base64URL Safe Decoder",
+    "description": "Decode URL-safe Base64URL strings (- and _ without = padding) back into original UTF-8 text.",
+    "sample": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+    "faqs": [
+      { "q": "Does this handle missing = padding automatically?", "a": "Yes, padding length is automatically restored before decoding." },
+      { "q": "Can I decode individual JWT segments with this?", "a": "Yes, paste either the header or payload segment of any JWT." }
+    ]
+  },
+  {
+    "id": "jwt-expiry-checker",
+    "slug": "jwt-expiration-checker-online",
+    "toolName": "JWT Expiration Checker",
+    "mode": "jwt-decode",
+    "ext": "json",
+    "title": "JWT Expiration (exp) & Claims Checker Online Free",
+    "h1": "JWT Expiration & Timestamp Inspector",
+    "description": "Check if a JSON Web Token is expired and inspect its iat, nbf, and exp timestamps locally in your browser.",
+    "sample": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzk5IiwiZXhwIjoxODkzNDU2MDAwfQ.signature",
+    "faqs": [
+      { "q": "How does it check JWT expiration?", "a": "It compares the payload exp claim against your device's current UTC clock." },
+      { "q": "Is the token sent anywhere?", "a": "No, inspection is 100% offline inside your browser." }
+    ]
+  },
+  {
+    "id": "mysql-formatter",
+    "slug": "mysql-query-formatter-online",
+    "toolName": "MySQL Query Formatter",
+    "mode": "sql-format",
+    "ext": "sql",
+    "title": "MySQL Query Formatter & Indenter Online Free",
+    "h1": "MySQL Query Formatter",
+    "description": "Format complex MySQL SELECT, JOIN, LIMIT, and ON DUPLICATE KEY UPDATE queries with clean line breaks.",
+    "sample": "select id, email, created_at from users where status = 'active' and login_count > 5 order by created_at desc limit 50;",
+    "faqs": [
+      { "q": "Does this format MySQL LIMIT and JOIN clauses?", "a": "Yes, major clauses are separated onto clean lines with uppercase keywords." },
+      { "q": "Are backtick table identifiers preserved?", "a": "Yes, backticked identifiers like `users` remain intact." }
+    ]
+  },
+  {
+    "id": "postgresql-formatter",
+    "slug": "postgresql-query-formatter-online",
+    "toolName": "PostgreSQL Query Formatter",
+    "mode": "sql-format",
+    "ext": "sql",
+    "title": "PostgreSQL Query Formatter & SQL Beautifier Online",
+    "h1": "PostgreSQL Query Formatter",
+    "description": "Beautify PostgreSQL queries with uppercase keywords and clean clause alignment directly in your browser.",
+    "sample": "select p.id, p.title, u.username from posts p inner join users u on p.author_id = u.id where p.published = true order by p.id desc;",
+    "faqs": [
+      { "q": "Does it preserve PostgreSQL :: type casts?", "a": "Yes, double-colon casts and JSONB operators remain untouched." },
+      { "q": "Can I download the formatted .sql file?", "a": "Yes, click Download File or Copy Result above." }
+    ]
+  },
+  {
+    "id": "json-to-go-struct",
+    "slug": "json-to-golang-struct-generator",
+    "toolName": "JSON to Go Struct Generator",
+    "mode": "json-to-go",
+    "ext": "go",
+    "title": "JSON to Go (Golang) Struct Generator Online Free",
+    "h1": "JSON to Go Struct Generator",
+    "description": "Convert JSON payloads into idiomatic Go structs with json:\"...\" struct tags automatically.",
+    "sample": "{\"user_id\":10,\"full_name\":\"Budi Santoso\",\"is_admin\":false,\"balance\":250.5}",
+    "faqs": [
+      { "q": "Does this add json struct tags automatically?", "a": "Yes, every exported PascalCase Go field includes its matching `json:\"snake_key\"` tag." },
+      { "q": "How are floating-point numbers vs integers typed?", "a": "Whole numbers map to int and decimal numbers map to float64." }
+    ]
+  },
+  {
+    "id": "json-to-python-dict",
+    "slug": "json-to-python-dict-converter",
+    "toolName": "JSON to Python Dict",
+    "mode": "json-to-python",
+    "ext": "py",
+    "title": "JSON to Python Dictionary Converter Online Free",
+    "h1": "JSON to Python Dictionary Converter",
+    "description": "Convert JSON true/false/null literals into valid Python True, False, and None dictionary syntax.",
+    "sample": "{\"id\":1,\"active\":true,\"deleted\":false,\"notes\":null}",
+    "faqs": [
+      { "q": "Why can't JSON be pasted directly into Python code?", "a": "JSON uses true, false, and null whereas Python requires True, False, and None." },
+      { "q": "Does this convert nested objects and lists?", "a": "Yes, nested structures are recursively converted into valid Python syntax." }
+    ]
+  },
+  {
+    "id": "json-to-php-array",
+    "slug": "json-to-php-array-converter",
+    "toolName": "JSON to PHP Array",
+    "mode": "json-to-php",
+    "ext": "php",
+    "title": "JSON to PHP Associative Array Converter Online Free",
+    "h1": "JSON to PHP Short Array [] Converter",
+    "description": "Convert JSON objects into modern PHP short-syntax associative arrays ([ 'key' => 'value' ]) instantly.",
+    "sample": "{\"status\":200,\"message\":\"Success\",\"items\":[\"a\",\"b\"]}",
+    "faqs": [
+      { "q": "Does this use modern PHP [] array syntax?", "a": "Yes, it outputs clean PHP 7/8+ short array syntax with => key mappings." },
+      { "q": "Are single quotes inside strings escaped?", "a": "Yes, single quotes are safely escaped with backslashes." }
+    ]
+  },
+  {
+    "id": "csv-to-markdown",
+    "slug": "csv-to-markdown-table-generator",
+    "toolName": "CSV to Markdown Table",
+    "mode": "csv-to-md",
+    "ext": "md",
+    "title": "CSV to Markdown Table Generator Online Free - GitHub README",
+    "h1": "CSV to Markdown Table Generator",
+    "description": "Convert CSV data into formatted GitHub-Flavored Markdown tables for README.md and documentation.",
+    "sample": "Feature,Free,Pro\nRows Limit,50,Unlimited\nFile Export,Basic,All Formats",
+    "faqs": [
+      { "q": "Does this work with GitHub and Notion Markdown?", "a": "Yes, it generates standard pipe-delimited GFM tables with header separator rows." },
+      { "q": "Are pipe characters inside CSV cells escaped?", "a": "Yes, internal | characters are escaped as \\| so columns never break." }
+    ]
+  },
+  {
+    "id": "json-to-markdown",
+    "slug": "json-to-markdown-table-generator",
+    "toolName": "JSON to Markdown Table",
+    "mode": "json-to-md",
+    "ext": "md",
+    "title": "JSON Array to Markdown Table Generator Online Free",
+    "h1": "JSON to Markdown Table Generator",
+    "description": "Convert an array of JSON objects into a clean Markdown table ready for GitHub issues, PRs, and docs.",
+    "sample": "[{\"endpoint\":\"/users\",\"method\":\"GET\",\"auth\":\"JWT\"},{\"endpoint\":\"/login\",\"method\":\"POST\",\"auth\":\"None\"}]",
+    "faqs": [
+      { "q": "How are columns ordered?", "a": "Columns follow the unique keys found across the JSON objects in the array." },
+      { "q": "What happens if an object is missing a key?", "a": "Missing fields render cleanly as empty cells without shifting columns." }
+    ]
+  },
+  {
+    "id": "markdown-table-to-csv",
+    "slug": "markdown-table-to-csv-converter",
+    "toolName": "Markdown Table to CSV",
+    "mode": "md-to-csv",
+    "ext": "csv",
+    "title": "Markdown Table to CSV Converter Online Free",
+    "h1": "Markdown Table to CSV Converter",
+    "description": "Extract data from GitHub or ChatGPT Markdown tables into clean CSV format for Excel and Google Sheets.",
+    "sample": "| Name | Score | Passed |\n| :--- | :---: | ---: |\n| Alice | 95 | Yes |\n| Bob | 82 | Yes |",
+    "faqs": [
+      { "q": "Does it automatically skip the --- separator row?", "a": "Yes, alignment separator rows (:---, :---:) are stripped automatically." },
+      { "q": "Are values containing commas quoted in the CSV?", "a": "Yes, any cell containing commas or quotes is properly RFC-4180 CSV quoted." }
+    ]
+  },
+  {
+    "id": "css-minifier",
+    "slug": "css-minifier-compressor-online",
+    "toolName": "CSS Minifier & Compressor",
+    "mode": "css-minify",
+    "ext": "css",
+    "title": "CSS Minifier & Stylesheet Compressor Online Free",
+    "h1": "CSS Minifier & Compressor",
+    "description": "Remove comments, whitespace, and redundant semicolons from CSS files to improve PageSpeed scores.",
+    "sample": "/* Primary button */\n.btn-primary {\n  background-color: #06b6d4;\n  padding: 12px 24px;\n  border-radius: 8px;\n}",
+    "faqs": [
+      { "q": "How much smaller does minified CSS get?", "a": "Typically 20% to 45% smaller by stripping comments and whitespace." },
+      { "q": "Does it remove /* ... */ CSS comments?", "a": "Yes, all block comments are removed cleanly." }
+    ]
+  },
+  {
+    "id": "css-beautifier",
+    "slug": "css-formatter-beautifier-online",
+    "toolName": "CSS Formatter & Beautifier",
+    "mode": "css-format",
+    "ext": "css",
+    "title": "CSS Formatter & Unminifier Online Free",
+    "h1": "CSS Formatter & Beautifier",
+    "description": "Expand minified single-line CSS stylesheets into clean, indented rules and properties.",
+    "sample": ".card{background:#0f172a;color:#fff;padding:16px}.card h2{font-size:18px}",
+    "faqs": [
+      { "q": "Can I unminify production CSS bundles with this?", "a": "Yes, paste any compressed .min.css string to expand braces and properties onto separate lines." },
+      { "q": "Does this run locally in the browser?", "a": "Yes, zero server calls are made." }
+    ]
+  },
+  {
+    "id": "html-minifier",
+    "slug": "html-minifier-compressor-online",
+    "toolName": "HTML Minifier & Compressor",
+    "mode": "html-minify",
+    "ext": "html",
+    "title": "HTML Minifier & Whitespace Remover Online Free",
+    "h1": "HTML Minifier & Compressor",
+    "description": "Strip HTML comments and collapse inter-tag whitespace to shrink static HTML pages.",
+    "sample": "<!-- Header -->\n<header class=\"top\">\n  <h1>Hello World</h1>\n</header>",
+    "faqs": [
+      { "q": "Does HTML minification remove HTML comments?", "a": "Yes, <!-- ... --> comments and redundant whitespace between tags are stripped." },
+      { "q": "Is it safe for static landing pages?", "a": "Yes, collapsing inter-tag whitespace reduces HTML payload weight cleanly." }
+    ]
+  },
+  {
+    "id": "regex-escape",
+    "slug": "regex-special-characters-escaper",
+    "toolName": "Regex Special Chars Escaper",
+    "mode": "regex-escape",
+    "ext": "txt",
+    "title": "Regex Escape Tool Online Free - Escape Special Characters",
+    "h1": "Regular Expression (Regex) String Escaper",
+    "description": "Escape regex metacharacters (., *, +, ?, ^, $, {, }, (, ), |, [, ], \\) for literal matching in JavaScript, Python, or Go.",
+    "sample": "https://api.example.com/v1/users?active=true&price=$9.99",
+    "faqs": [
+      { "q": "Why escape strings before building a RegExp?", "a": "Characters like . ? + and $ have special regex meanings unless preceded by a backslash." },
+      { "q": "Which characters are escaped?", "a": "All standard PCRE and ECMAScript regex metacharacters are escaped." }
+    ]
+  },
+  {
+    "id": "curl-to-fetch",
+    "slug": "curl-to-javascript-fetch-converter",
+    "toolName": "cURL to JS fetch() Converter",
+    "mode": "curl-to-fetch",
+    "ext": "js",
+    "title": "cURL Command to JavaScript fetch() Converter Online Free",
+    "h1": "cURL to JavaScript fetch() Code Generator",
+    "description": "Convert cURL API commands (headers, -X method, -d JSON body) into clean async JavaScript fetch() code.",
+    "sample": "curl -X POST https://api.example.com/v1/items -H \"Authorization: Bearer token123\" -H \"Content-Type: application/json\" -d '{\"name\":\"Book\"}'",
+    "faqs": [
+      { "q": "Does this extract -H headers and -d body data?", "a": "Yes, HTTP method, headers, and request body are automatically mapped into fetch() options." },
+      { "q": "Can I use the generated code in Node.js and browsers?", "a": "Yes, native fetch() works identically in modern browsers and Node.js 18+." }
+    ]
+  },
+  {
+    "id": "color-hex-to-rgb",
+    "slug": "hex-to-rgb-rgba-color-converter",
+    "toolName": "HEX to RGB / RGBA Converter",
+    "mode": "hex-to-rgb",
+    "ext": "txt",
+    "title": "HEX to RGB & RGBA CSS Color Converter Online Free",
+    "h1": "HEX to RGB & RGBA Color Converter",
+    "description": "Convert 3-digit, 6-digit, or 8-digit CSS HEX color codes (#06b6d4) into rgb(), rgba(), and numeric channels.",
+    "sample": "#06b6d4",
+    "faqs": [
+      { "q": "Does this support 3-digit shorthand hex codes like #f0a?", "a": "Yes, both 3-digit (#f0a), 6-digit (#ff00aa), and 8-digit (#ff00aa80) hex codes are supported." },
+      { "q": "Can I paste multiple hex colors on separate lines?", "a": "Yes, enter one hex color per line to convert an entire palette at once." }
+    ]
+  },
+  {
+    "id": "byte-size-converter",
+    "slug": "bytes-kb-mb-gb-tb-converter",
+    "toolName": "Bytes / KB / MB / GB Converter",
+    "mode": "byte-convert",
+    "ext": "txt",
+    "title": "Bytes to KB, MB, GB, TB Data Size Converter Online Free",
+    "h1": "Data Storage Unit Converter (Bytes / KB / MB / GB)",
+    "description": "Convert raw byte counts into Decimal (KB, MB, GB) and Binary (KiB, MiB, GiB) file sizes instantly.",
+    "sample": "10485760",
+    "faqs": [
+      { "q": "What is the difference between MB and MiB?", "a": "1 MB equals 1,000,000 bytes (decimal), while 1 MiB equals 1,048,576 bytes (binary 1024^2)." },
+      { "q": "Can I enter units like 500MB or 2.5GB?", "a": "Yes, enter a raw byte integer or a value with KB, MB, GB, or TB suffix." }
+    ]
+  }
+]
